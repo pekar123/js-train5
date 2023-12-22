@@ -172,11 +172,11 @@ function swapMinMax(array) {
   let min = array[0];
   let minIndex = 0;
   let maxIndex = 0;
-  for (let i = 1; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     if (array[i] > max) {
       max = array[i];
       maxIndex = i;
-    } else if (array[i] < min) {
+    } else if (array[i] <= min) {
       min = array[i];
       minIndex = i;
     }
@@ -197,10 +197,18 @@ function swapMinMax(array) {
 
 console.log("Завдання 10 ====================================");
 // Виводимо в консоль результат виклику функції swapMinMax з масивом [1, 2, 3, 4, 5] як аргументом. Очікуємо бачити [5, 2, 3, 4, 1], оскільки максимальне та мінімальне значення обміняні місцями.
-console.log(swapMinMax([1, 2, 3, 4, 5]));
+console.log(swapMinMax([1, 2, 3, 4, 5,]));
 
 // Завдання 11: Функція приймає масив чисел. Поверніть новий масив, який містить тільки парні числа з оригінального масиву.
 function getEvenNumbers(arr) {
+    
+  let num = [];
+  for(let i =0; i<arr.length; i++){
+    if (arr[i] % 2===0) {  
+      num.push(arr[i]); 
+    } 
+  }
+  return num
   // Створюємо пустий масив для зберігання результату
   // Проходимо через кожен елемент вхідного масиву
   // Перевіряємо чи є число парним
@@ -212,6 +220,11 @@ console.log(getEvenNumbers([1, 2, 3, 4, 5, 6])); // Виведе [2, 4, 6]
 
 // Завдання 12: Функція приймає масив чисел. Поверніть новий масив, в якому всі числа помножені на їх індекс.
 function multiplyByIndex(arr) {
+  let number = [];
+  for(let i = 0; i<arr.length; i++){
+    number.push(arr[i]*i)
+  }
+  return number
   // Створюємо пустий масив для зберігання результату
   // Проходимо через кожен елемент вхідного масиву
   // Помножуємо число на його індекс і додаємо до масиву результату
@@ -222,6 +235,15 @@ console.log(multiplyByIndex([1, 2, 3, 4, 5])); // Виведе [0, 2, 6, 12, 20]
 
 // Завдання 13: Функція приймає масив чисел. Повертає новий масив, в якому всі числа більші за 10 замінені на рядок "Greater than 10", а решта чисел замінені на рядок "Less than or equal to 10".
 function replaceNumbers(arr) {
+  let num = [];
+  for(let i=0; i<arr.length; i++){
+    if(arr[i]>=10){
+      num.push("Greater than 10")
+    }else if(arr[i]<10){
+      num.push("Less than or equal to 10")
+    }
+  }
+  return num
   // Створюємо пустий масив для зберігання результату
   // Проходимо через кожен елемент вхідного масиву
   // Перевіряємо, чи число більше за 10
